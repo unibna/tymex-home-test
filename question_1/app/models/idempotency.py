@@ -43,8 +43,3 @@ class IdempotencyKey(Base):
     payment = relationship("Payment", back_populates="idempotency", uselist=False)
 
 
-@event.listens_for(IdempotencyKey, 'before_update', propagate=True)
-def update_idempotency_key_timestamp(mapper, connection, target):
-    target.updated_at = func.now()
-
-

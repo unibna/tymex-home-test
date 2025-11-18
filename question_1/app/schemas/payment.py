@@ -10,7 +10,7 @@ class PaymentCreate(BaseModel):
     amount: float
 
 
-class Payment(BaseModel):
+class PaymentSerializer(BaseModel):
     id: UUID
     created_at: datetime
     updated_at: datetime

@@ -1,4 +1,3 @@
-from datetime import datetime
 from enum import Enum
 from uuid import uuid4
 
@@ -7,7 +6,6 @@ from sqlalchemy import(
     DateTime,
     Enum as SQLAlchemyEnum,
     Numeric,
-    event,
     ForeignKey,
     func,
 )
@@ -53,6 +51,5 @@ class Payment(Base):
         if value not in PaymentStatus:
             raise ValueError("Invalid status")
         return value
-
 
 

@@ -17,3 +17,5 @@ class Payment(BaseModel):
     deleted_at: datetime | None
     amount: float
     status: PaymentStatus
+
+

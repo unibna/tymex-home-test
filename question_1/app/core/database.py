@@ -28,10 +28,6 @@ Base = declarative_base()
 
 
 async def get_session() -> AsyncGenerator[AsyncSession, None]:
-    """
-    FastAPI dependency to get a database session.
-    Automatically handles commit/rollback/close.
-    """
     async with AsyncSessionLocal() as session:
         try:
             yield session

@@ -8,10 +8,8 @@ from app.core.migrations import run_migrations
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: Run migrations
     await run_migrations()
     yield
-    # Shutdown: (if needed, add cleanup code here)
 
 
 def init() -> FastAPI:

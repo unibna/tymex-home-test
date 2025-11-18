@@ -69,7 +69,6 @@ class IdempotencyKeyService:
         self.idempotency_key = result.scalar_one_or_none()
 
     async def _create(self, request_hash: str):
-        # Use timezone-naive UTC datetime to match TIMESTAMP WITHOUT TIME ZONE column
         expires_at = (datetime.now(timezone.utc) + timedelta(days=self.EXPIRES_IN_DAYS)).replace(tzinfo=None)
         self.idempotency_key = IdempotencyKey(
             key=self.key,
